@@ -16,7 +16,7 @@ class Post(models.Model):
     chats = models.IntegerField(default=0)
 
     class Meta:
-        ordering = ('created',)
+        ordering = ('-created',)
 
     def __unicode__(self):
         return self.i_need
