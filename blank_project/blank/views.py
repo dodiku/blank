@@ -27,3 +27,5 @@ def post_list(request):
             serializer.save()
             return JSONResponse(serializer.data, status=201)
         return JSONResponse(serializer.errors, status=400)
+
+#asdfasdf
