@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from blank.models import Post
+from blank.models import Post, UserProfile
+from django.contrib.auth.models import User
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
@@ -12,15 +13,16 @@ class PostSerializer(serializers.ModelSerializer):
         'created',
         )
 
-    #PostSerializer class by using serializers.ModelSerializer
-    #########################################################
-    # pk = serializers.IntegerField(read_only=True)
-    # i_am = serializers.CharField(required=True, max_length=50)
-    # i_want = serializers.CharField(required=True, max_length=50)
-    # i_need = serializers.CharField(required=True, max_length=50)
-    #
-    # def create(self, validated_data):
-    #     """
-    #     Create and return a new `Post` instance, given the validated data.
-    #     """
-    #     return Post.objects.create(**validated_data)
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = (
+        'username'
+        )
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserProfile
+        picture = (
+        'username'
+        )

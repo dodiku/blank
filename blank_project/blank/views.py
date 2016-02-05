@@ -10,7 +10,7 @@ import datetime
 
 class PostList(APIView):
     def get(self, request, format=None):
-        posts = Post.objects.all()
+        posts = Post.objects.all()[:200]
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data)
 
